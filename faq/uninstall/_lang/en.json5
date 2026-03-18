@@ -1,0 +1,4 @@
+{
+	"$path": "content",
+	"$remove": { "faq": true }
+}
