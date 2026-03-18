@@ -1,0 +1,16 @@
+{
+	"$path": "content",
+	faq: {
+		heading: "FAQ",
+		faqs: [
+			{
+				question: "FAQ 1",
+				answer: "Answer 1"
+			},
+			{
+				question: "FAQ 2",
+				answer: "Answer 2"
+			}
+		]
+	}
+}
