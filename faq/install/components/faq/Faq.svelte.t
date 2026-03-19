@@ -25,10 +25,10 @@ to: src/lib/components/faq/Faq.svelte
 	const languageEnabled = (__cfg?.language as { enabled?: boolean } | undefined)?.enabled ?? false;
 	const configFaq = (__cfg?.modules as { faq?: { heading?: string; faqs?: Array<{ question: string; answer: string }> } } | undefined)?.faq;
 
-	// When language enabled and content.faq exists: use i18n; else use modules.faq from config
+	// When language enabled and modules.faq exists: use i18n; else use modules.faq from config
 	$: faqs = ((): FaqItem[] => {
-		if (languageEnabled && $LL?.content?.faq?.faqs != null) {
-			const fromLl = $LL.content.faq.faqs as unknown as Record<string, FaqItemT>;
+		if (languageEnabled && $LL?.modules?.faq?.faqs != null) {
+			const fromLl = $LL.modules.faq.faqs as unknown as Record<string, FaqItemT>;
 			return Object.values(fromLl).map((item, idx) => ({
 				id: idx + 1,
 				question: unwrap(item.question),
@@ -44,7 +44,7 @@ to: src/lib/components/faq/Faq.svelte
 	})();
 
 	$: heading = ((): string => {
-		if (languageEnabled && $LL?.content?.faq?.heading != null) return unwrap($LL.content.faq.heading);
+		if (languageEnabled && $LL?.modules?.faq?.heading != null) return unwrap($LL.modules.faq.heading);
 		return configFaq?.heading ?? 'FAQ';
 	})();
 </script>
