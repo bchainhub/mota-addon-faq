@@ -1,16 +1,14 @@
 {
 	"$path": "modules.faq",
-	faq: {
-		heading: "FAQ",
-		faqs: [
-			{
-				question: "FAQ 1",
-				answer: "Answer 1"
-			},
-			{
-				question: "FAQ 2",
-				answer: "Answer 2"
-			}
-		]
-	}
+	title: "FAQ",
+	faqs: [
+		{
+			question: "FAQ 1",
+			answer: "Answer 1"
+		},
+		{
+			question: "FAQ 2",
+			answer: "Answer 2"
+		}
+	]
 }

@@ -23,7 +23,7 @@ to: src/lib/components/faq/Faq.svelte
 
 	const __cfg = getSiteConfig();
 	const languageEnabled = (__cfg?.language as { enabled?: boolean } | undefined)?.enabled ?? false;
-	const configFaq = (__cfg?.modules as { faq?: { heading?: string; faqs?: Array<{ question: string; answer: string }> } } | undefined)?.faq;
+	const configFaq = (__cfg?.modules as { faq?: { title?: string; faqs?: Array<{ question: string; answer: string }> } } | undefined)?.faq;
 
 	// When language enabled and modules.faq exists: use i18n; else use modules.faq from config
 	$: faqs = ((): FaqItem[] => {
@@ -43,9 +43,9 @@ to: src/lib/components/faq/Faq.svelte
 		}));
 	})();
 
-	$: heading = ((): string => {
-		if (languageEnabled && $LL?.modules?.faq?.heading != null) return unwrap($LL.modules.faq.heading);
-		return configFaq?.heading ?? 'FAQ';
+	$: title = ((): string => {
+		if (languageEnabled && $LL?.modules?.faq?.title != null) return unwrap($LL.modules.faq.title);
+		return configFaq?.title ?? 'FAQ';
 	})();
 </script>
 
@@ -57,7 +57,7 @@ to: src/lib/components/faq/Faq.svelte
 				<div
 					class="text-slate-900 dark:text-white font-bold tracking-tight w-full text-center text-2xl lg:text-3xl xl:text-4xl leading-tight max-xl:text-2xl max-xl:leading-tight max-md:text-xl max-md:leading-tight max-sm:text-xl max-sm:leading-tight"
 				>
-					{heading}
+					{title}
 				</div>
 			</div>
 
